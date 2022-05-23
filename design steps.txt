@@ -1,0 +1,9 @@
+Crear app con jetstream
+Crear base de datos
+----------------------
+Instalar bootstrap jetstrap
+----------------------
+Instalar idioma español.
+----------------------
+Instalar admin LTE
+Crear la url de admin de rutas.
