@@ -8,16 +8,42 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <!-- Left Side Of Navbar -->
-            <ul class="navbar-nav me-auto">
-                <x-jet-nav-link href="{{ route('admin.index') }}" :active="request()->routeIs('admin.index')">
-                    {{ __('Dashboard') }}
-                </x-jet-nav-link>
-            </ul>
-
+        <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav align-items-baseline">
+                <li class="nav-item">
+                    <a class="nav-link @if(Request::is('/')) active-warning @endif" href="">Inicio</a>
+                </li>
+                <li>
+                    <div class="dropdown nav-item">
+                        <a class="nav-link dropdown-toggle @if(Request::is('about')) active-warning @endif" href="#"
+                            role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            Categorias
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </div>
+                </li>
+                
+                <li class="nav-item">
+                <a class="nav-link @if(Request::is('contacto')) active-warning @endif" href="">Pedi tu presupuesto</a>                
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link @if(Request::is('contacto')) active-warning @endif" href="">Contactanos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link @if(Request::is('contacto')) active-warning @endif" href="">Preguntas frecuentes</a>
+                </li>
+                @guest
+                <li class="nav-item">
+                    <a href="{{ route('login') }}"  class="nav-link">Iniciar Sesion</a>
+                </li>    
+                @endguest
                 <!-- Teams Dropdown -->
                 @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
                     <x-jet-dropdown id="teamManagementDropdown">
@@ -84,6 +110,11 @@
                             <x-jet-dropdown-link href="{{ route('profile.show') }}">
                                 {{ __('Profile') }}
                             </x-jet-dropdown-link>
+            
+            
+                            <x-jet-dropdown-link href="{{ route('admin.index') }}" :active="request()->routeIs('admin.index')">
+                                {{ __('Dashboard') }}
+                            </x-jet-dropdown-link>
 
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                                 <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">
@@ -97,7 +128,7 @@
                             <x-jet-dropdown-link href="{{ route('logout') }}"
                                                  onclick="event.preventDefault();
                                                          document.getElementById('logout-form').submit();">
-                                {{ __('Log out') }}
+                                {{ __('Cerrar Sesion') }}
                             </x-jet-dropdown-link>
                             <form method="POST" id="logout-form" action="{{ route('logout') }}">
                                 @csrf

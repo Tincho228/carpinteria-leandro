@@ -17,27 +17,25 @@
 
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
+        
     </head>
-    <body class="font-sans antialiased bg-light">
+    <body class="font-sans antialiased bg-black">
+        <div class="container" style="background-image: url('{{URL::asset('assets/images/hero-background.jpg')}}')">
         <x-jet-banner />
+        @include('partials.header')
         @livewire('navigation-menu')
 
-        <!-- Page Heading -->
-        <header class="d-flex py-3 bg-white shadow-sm border-bottom">
-            <div class="container">
-                {{ $header }}
-            </div>
-        </header>
-
         <!-- Page Content -->
-        <main class="container my-5">
+        <main class="container mt-5">
             {{ $slot }}
         </main>
+        @include('partials.footer')
 
         @stack('modals')
 
         @livewireScripts
 
         @stack('scripts')
+        </div>
     </body>
 </html>
