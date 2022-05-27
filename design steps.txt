@@ -7,3 +7,5 @@ Instalar idioma español.
 ----------------------
 Instalar admin LTE
 Crear la url de admin de rutas.
+---------------------
+convertir todas las imagenes

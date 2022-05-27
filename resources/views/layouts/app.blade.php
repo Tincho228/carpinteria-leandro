@@ -9,6 +9,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" integrity="sha512-BnbUDfEUfV0Slx6TunuB042k9tuKe3xrD6q4mg5Ed72LTgzDIcLPxg6yI2gcMFRyomt+yJJxE+zJwNmxki6/RA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
@@ -19,16 +20,15 @@
         <script src="{{ mix('js/app.js') }}" defer></script>
         
     </head>
-    <body class="font-sans antialiased bg-black">
-        <div class="container" style="background-image: url('{{URL::asset('assets/images/hero-background.jpg')}}')">
-        <x-jet-banner />
+    <body class="font-sans antialiased">
+        <div class="container">
         @include('partials.header')
-        @livewire('navigation-menu')
+        
 
         <!-- Page Content -->
-        <main class="container mt-5">
+        
             {{ $slot }}
-        </main>
+        
         @include('partials.footer')
 
         @stack('modals')

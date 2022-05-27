@@ -1,9 +1,7 @@
-<nav class="navbar navbar-expand-md navbar-light bg-white border-bottom sticky-top">
+<div class="container mb-3">
+<nav class="navbar navbar-expand-md navbar-dark bg-nav-gray" >
     <div class="container">
-        <!-- Logo -->
-        <a class="navbar-brand me-4" href="/">
-            <x-jet-application-mark width="36" />
-        </a>
+        
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -140,3 +138,9 @@
         </div>
     </div>
 </nav>
+</div>
+<style>
+    .bg-nav-gray {
+        background-color: rgba(127,127,127,0.4) !important;
+    }
+</style>
