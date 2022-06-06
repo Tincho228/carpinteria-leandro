@@ -8,9 +8,9 @@
 
         <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
             <!-- Right Side Of Navbar -->
-            <ul class="navbar-nav align-items-baseline">
+            <ul class="navbar-nav align-items-baseline mt-2">
                 <li class="nav-item">
-                    <a class="nav-link @if(Request::is('/')) active-warning @endif" href="">Inicio</a>
+                    <a class="nav-link @if(Request::is('/')) active-warning @endif" href="/">Inicio</a>
                 </li>
                 <li>
                     <div class="dropdown nav-item">
@@ -19,20 +19,19 @@
                             aria-expanded="false">
                             Categorias
                         </a>
-
+                        @php
+                            $categorias = \App\Http\Controllers\CategoryController::getCategories();
+                        @endphp
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                            @foreach ($categorias as $categoria)
+                                <a class="dropdown-item" href="{{route('categories.show', $categoria)}}">{{$categoria->name}}</a>
+                            @endforeach
                         </div>
                     </div>
                 </li>
                 
                 <li class="nav-item">
-                <a class="nav-link @if(Request::is('contacto')) active-warning @endif" href="">Pedi tu presupuesto</a>                
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link @if(Request::is('contacto')) active-warning @endif" href="">Contactanos</a>
+                    <a class="nav-link @if(Request::is('contacto')) active-warning @endif" data-bs-toggle="modal" data-bs-target="#modal-contact" style="cursor:pointer">Contactanos</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link @if(Request::is('contacto')) active-warning @endif" href="">Preguntas frecuentes</a>
@@ -139,8 +138,15 @@
     </div>
 </nav>
 </div>
+
+@include('partials.modal-contact')
 <style>
     .bg-nav-gray {
         background-color: rgba(127,127,127,0.4) !important;
+    }
+    .active-warning{
+        /*background-color:red;*/
+        border-bottom:4px solid orange;
+        padding-bottom:0;
     }
 </style>

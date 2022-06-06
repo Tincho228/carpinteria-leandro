@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $categorias = Category::all();
+    return view('welcome', compact('categorias'));
 });
 
 Route::middleware([
@@ -26,3 +29,5 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+//Route::resource('categories', CategoryController::class)->names('admin.categories');
+Route::resource('categories', CategoryController::class)->names('categories');

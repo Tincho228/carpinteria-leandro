@@ -33,6 +33,9 @@
 </div>
 
 <style>
+    html {
+      scroll-behavior: smooth;
+    }
     .text-brown {
         color: brown;
     }
