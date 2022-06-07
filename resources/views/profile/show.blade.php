@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
 
-    <div>
+    <div class="mb-4 mt-4">
         @if (Laravel\Fortify\Features::canUpdateProfileInformation())
             @livewire('profile.update-profile-information-form')
 

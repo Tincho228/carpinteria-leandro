@@ -7,6 +7,11 @@
 @stop
 
 @section('content')
+@if(session('info'))
+<div class="alert alert-success">
+    <strong>{{session('info')}}</strong>
+</div>
+@endif
 <div class="card">
     <div class="card-header d-flex justify-content-end">
         <a class="btn btn-primary btn-sm" href="{{route('admin.categories.create')}}">Crear Categoria</a>
@@ -32,20 +37,15 @@
                             <a class="btn btn-secondary btn-sm" href="{{route('admin.categories.edit', $categoria)}}">Editar</a>
                         </td>
                         <td>
-                            <form action="{{route('admin.categories.destroy',$categoria)}}" method="POST">
-                            @csrf    
-                            @method('DELETE')
-                            <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
-                            </form>
+                            <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteCategory{{$categoria->id}}">Eliminar</button>               
                         </td>
                     </tr>
+                    @include('admin.categories.partials.modal-delete')
                 @endforeach
             </tbody>
         </table>
     </div>
-    <div class="card-footer">
-        {{$categorias->links()}}
-    </div>
+    
     @else
     <div class="card-body">
         <div class="alert alert-secondary">No hay categorias</div>

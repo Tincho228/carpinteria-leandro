@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Livewire\WithPagination;
@@ -19,7 +20,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categorias = Category::where('name','LIKE','%' . ' ' . '%')->paginate(4);
+        $categorias = Category::all();
         return view('admin.categories.index',compact('categorias'));
     }
 
@@ -81,9 +82,11 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $category)
+    public function update(CategoryRequest $request, Category $category)
     {
-        //
+        $category->update($request->all());
+        
+        return redirect()->route('admin.categories.edit',$category)->with('info','La categoría se actualizó con éxito');
     }
 
     /**
@@ -92,8 +95,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($category)
+    public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return redirect()->route('admin.categories.index')->with('info','La categoria se eliminó con éxito.');
     }
 }

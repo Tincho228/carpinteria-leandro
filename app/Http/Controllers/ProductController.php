@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Category;
+
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -43,10 +43,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show($id)
     {
-        $categorias = Category::all();
-        return view('categories', compact('category', 'categorias'));
+        //
     }
 
     /**
@@ -82,8 +81,4 @@ class CategoryController extends Controller
     {
         //
     }
-    public static function getCategories(){
-        return Category::all();
-    }
-    
 }
