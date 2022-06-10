@@ -256,26 +256,11 @@ return [
             'icon' => 'fa-fw fab fa-buffer',
         ],
         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
+            'text' => 'Products',
+            'route'  => 'admin.products.index',
+            'icon' => 'fas fa-fw fa-box',
         ],
-        ['header' => 'labels'],
-        [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
-        ],
+       
     ],
 
     /*
@@ -430,5 +415,5 @@ return [
     |
     */
 
-    'livewire' => false,
+    'livewire' => true,
 ];

@@ -7,6 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
+    
     protected $fillable = ['name', 'slug','description'];
     use HasFactory;
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+    // relacion uno a muchos
+    public function products(){
+        return $this->hasMany(Product::class);
+    }
 }

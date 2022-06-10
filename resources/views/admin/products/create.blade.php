@@ -7,11 +7,16 @@
 @stop
 
 @section('content')
-    <div class="card">
-        <div class="card-body">
+<div class="card">
+    <div class="card-body">
+        {!! Form::open(['route' => 'admin.products.store']) !!}
             
-        </div>
+            @include('admin.products.partials.form')
+
+            {!! Form::submit('Crear producto', ['class' => 'btn btn-sm btn-primary']) !!}
+        {!! Form::close() !!}
     </div>
+</div>
 @stop
 
 @section('css')
@@ -19,5 +24,15 @@
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+<script src="{{asset('vendor/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js')}}"></script>
+<script>
+
+    $(document).ready( function() {
+         $("#name").stringToSlug({
+        setEvents: 'keyup keydown blur',
+        getPut: '#slug',
+        space: '-'
+});
+});
+</script>
 @stop

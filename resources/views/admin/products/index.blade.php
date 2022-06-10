@@ -7,11 +7,12 @@
 @stop
 
 @section('content')
-    <div class="card">
-        <div class="card-body">
-            
-        </div>
+    @if (session('info'))
+    <div class="alert alert-success">
+        <strong>{{session('info')}}</strong>
     </div>
+    @endif
+    @livewire('admin.product-index')
 @stop
 
 @section('css')
@@ -19,5 +20,5 @@
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+
 @stop
