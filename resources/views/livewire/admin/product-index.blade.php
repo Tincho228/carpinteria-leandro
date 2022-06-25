@@ -20,6 +20,16 @@
                     @endforeach
                 </select>
             </div>
+            <div class="col input-group mb-3 w-50">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Promocion</label>
+                </div>
+                <select wire:model="statusSearch" class="custom-select" id="inputGroupSelect01">
+                    <option selected value="">Todos</option>
+                    <option value="0">Sin etiqueta</option>
+                    <option value="1">Mas Vendido</option>
+                </select>
+            </div>
         </div>
         <div class="d-flex justify-content-end">
             <a class="btn btn-primary btn-sm" href="{{route('admin.products.create')}}">Crear producto</a>
@@ -34,6 +44,7 @@
                     <th>Nombre</th>
                     <th>Descripcion</th>
                     <th>Categoria</th>
+                    <th>Captura</th>
                     <th></th>
                 </tr>
             </thead>
@@ -44,6 +55,8 @@
                     <td>{{$product->name}}</td>
                     <td>{{$product->description}}</td>
                     <td>{{$product->category->name}}</td>
+                    <td><img src="{{Storage::url($product->photo->url)}}" alt="" class="img-gif"></td>
+
                     <td>
                         <a class="btn btn-secondary btn-sm" href="{{route('admin.products.edit', $product)}}">Editar</a>
                     </td>

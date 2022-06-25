@@ -10,11 +10,11 @@
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav align-items-baseline mt-2">
                 <li class="nav-item">
-                    <a class="nav-link @if(Request::is('/')) active-warning @endif" href="/">Inicio</a>
+                    <a class="nav-link text-white @if(Request::is('/')) active-warning @endif" href="/">Inicio</a>
                 </li>
                 <li>
                     <div class="dropdown nav-item">
-                        <a class="nav-link dropdown-toggle @if(Request::is('about')) active-warning @endif" href="#"
+                        <a class="nav-link dropdown-toggle text-white @if(Request::is('categories*')) active-warning @endif" href="#"
                             role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
                             Categorias
@@ -31,10 +31,10 @@
                 </li>
                 
                 <li class="nav-item">
-                    <a class="nav-link @if(Request::is('contacto')) active-warning @endif" data-bs-toggle="modal" data-bs-target="#modal-contact" style="cursor:pointer">Contactanos</a>
+                    <a class="nav-link text-white @if(Request::is('contacto')) active-warning @endif" data-bs-toggle="modal" data-bs-target="#modal-contact" style="cursor:pointer">Contactanos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link @if(Request::is('contacto')) active-warning @endif" href="">Preguntas frecuentes</a>
+                    <a class="nav-link text-white @if(Request::is('contacto')) active-warning @endif" href="">Preguntas frecuentes</a>
                 </li>
                 @guest
                 <li class="nav-item">

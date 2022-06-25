@@ -13,6 +13,7 @@ class ProductIndex extends Component
     protected $paginationTheme = "bootstrap";
     public $search;
     public $categorySearch;
+    public $statusSearch = "0";
     public function updatingSearch(){
         $this->resetPage();
     }
@@ -22,6 +23,7 @@ class ProductIndex extends Component
         $products = Product::latest('id')
                         ->where('name','LIKE','%' . $this->search . '%')
                         ->where('category_id', 'LIKE','%' . $this->categorySearch . '%')
+                        ->where('status', 'LIKE','%' . $this->statusSearch . '%' )
                         ->paginate(10);
         return view('livewire.admin.product-index', compact('products','categories'));
     }

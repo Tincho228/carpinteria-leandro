@@ -248,19 +248,26 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
-        // ['header' => 'account_settings'],
+        
         ['header' => 'PANEL DE CONTROL'],
         [
             'text' => 'Categorias',
             'route'  => 'admin.categories.index',
+            'active' => ['admin/categories*'],
             'icon' => 'fa-fw fab fa-buffer',
         ],
         [
-            'text' => 'Products',
+            'text' => 'Productos',
             'route'  => 'admin.products.index',
+            'active' => ['admin/products*'],
             'icon' => 'fas fa-fw fa-box',
         ],
-       
+        [
+            'text' => 'Links',
+            'route'  => 'admin.links.index',
+            'active' => ['admin/links*'],
+            'icon' => 'fas fa-fw fa-link',
+        ],
     ],
 
     /*

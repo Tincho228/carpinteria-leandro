@@ -5,7 +5,7 @@
         <p>Los muebles a medida son piezas únicas creadas para un interior en concreto. 
         </p>
         <!-- Use a button to pause/play the video with JavaScript -->
-        <a class="btn btn-outline-light btn-sm" href="Jumbo action link" role="button">Contáctanos por
+        <a class="btn btn-outline-light btn-sm" href="https://api.whatsapp.com/send?phone=542974234490" target="_blank">Contáctanos por
             Whatsapp</a>
     </div>
     <!-- The video -->
@@ -29,6 +29,7 @@
         color: #f1f1f1;
         width: 50%;
         padding: 20px;
+        z-index:1; 
         
     }
     @media only screen and (max-width: 768px) {

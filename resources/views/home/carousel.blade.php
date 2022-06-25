@@ -12,7 +12,7 @@
             <hr class="text-light">
             <p class="text-light">Más info</p>
             <p class="lead">
-                <a class="btn btn-outline-light btn-sm" href="Jumbo action link" role="button">Contáctanos por
+                <a class="btn btn-outline-light btn-sm" href="https://api.whatsapp.com/send?phone=542974234490" target="_blank" role="button">Contáctanos por
                     Whatsapp</a>
             </p>
         </div>

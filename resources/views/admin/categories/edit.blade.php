@@ -14,7 +14,7 @@
 @endif
 <div class="card">
     <div class="card-body">
-        {!! Form::model($category, ['route' => ['admin.categories.update', $category],'method'=>'put']) !!}
+        {!! Form::model($category, ['route' => ['admin.categories.update', $category],'files'=>true,'method'=>'put']) !!}
             
             @include('admin.categories.partials.form')
 
@@ -41,5 +41,14 @@
         space: '-'
 });
 });
+document.getElementById('file').addEventListener('change', cambiarImagen);
+    function cambiarImagen(event){
+        var file = event.target.files[0];
+        let reader = new FileReader();
+        reader.onload = (event) => {
+            document.getElementById('picture').setAttribute('src', event.target.result);
+        }
+        reader.readAsDataURL(file);
+    }
 </script>
 @stop

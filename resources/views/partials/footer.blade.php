@@ -61,7 +61,7 @@
                         <div class="mb-2">
                             <img class="media-icon" src="{{URL::asset('assets/iconos/whatsapp.png')}}"
                                 alt="Icono de whatsapp">
-                            <a class="button-link" href="">WhatsApp</a>
+                            <a class="button-link" href="https://api.whatsapp.com/send?phone=542974234490" target="_blank">WhatsApp</a>
                         </div>
                         <div class="mb-2">
                             <img class="media-icon" src="{{URL::asset('assets/iconos/instagram.png')}}"

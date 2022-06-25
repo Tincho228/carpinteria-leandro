@@ -3,9 +3,10 @@
 namespace Database\Seeders;
 
 use App\Models\Product;
-use App\Models\Image;
+use App\Models\Photo;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Gallery;
 
 class ProductSeeder extends Seeder
 {
@@ -18,7 +19,11 @@ class ProductSeeder extends Seeder
     {
         $products = Product::factory(20)->create();
         foreach($products as $product){
-            Image::factory(4)->create([
+            Gallery::factory(4)->create([
+                'imageable_id' => $product->id,
+                'imageable_type' => Product::class
+            ]);
+            Photo::factory(1)->create([
                 'imageable_id' => $product->id,
                 'imageable_type' => Product::class
             ]);

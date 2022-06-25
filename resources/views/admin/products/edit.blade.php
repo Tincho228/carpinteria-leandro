@@ -14,7 +14,7 @@
 @endif
 <div class="card">
     <div class="card-body">
-        {!! Form::model($product, ['route' => ['admin.products.update', $product],'method'=>'put']) !!}
+        {!! Form::model($product, ['route' => ['admin.products.update', $product],'files'=>true,'method'=>'put']) !!}
             
             @include('admin.products.partials.form')
 
@@ -24,7 +24,7 @@
     </div>
     
 </div>
-@livewire('admin.image-index',['product' => $product]);
+@livewire('admin.gallery-index',['product' => $product]);
 @stop
 
 @section('css')
@@ -42,5 +42,14 @@
         space: '-'
 });
 });
+document.getElementById('file').addEventListener('change', cambiarImagen);
+    function cambiarImagen(event){
+        var file = event.target.files[0];
+        let reader = new FileReader();
+        reader.onload = (event) => {
+            document.getElementById('picture').setAttribute('src', event.target.result);
+        }
+        reader.readAsDataURL(file);
+    }
 </script>
 @stop

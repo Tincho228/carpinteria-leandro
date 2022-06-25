@@ -28,7 +28,8 @@ class ProductRequest extends FormRequest
             'name' => 'required',
             'slug' => 'required|unique:products',
             'description'=>'required',
-            'category_id' =>'required'
+            'category_id' =>'required',
+            'file'=>'required|image'
         ];
 
         if($product){

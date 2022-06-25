@@ -1,7 +1,8 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
-use App\Models\Category;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,10 +16,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $categorias = Category::all();
-    return view('welcome', compact('categorias'));
-});
+
+Route::get('',HomeController::class);
 
 Route::middleware([
     'auth:sanctum',
@@ -29,5 +28,5 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
-//Route::resource('categories', CategoryController::class)->names('admin.categories');
+Route::resource('products', ProductController::class)->only('show')->names('products');
 Route::resource('categories', CategoryController::class)->names('categories');

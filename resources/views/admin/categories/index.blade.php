@@ -24,6 +24,7 @@
                     <th>Id</th>
                     <th>Nombre</th>
                     <th>Descripcion</th>
+                    <th>Imagen principal</th>
                     <th></th>
                 </tr>
             </thead>
@@ -33,6 +34,7 @@
                         <td>{{$categoria->id}}</td>
                         <td>{{$categoria->name}}</td>
                         <td>{{$categoria->description}}</td>
+                        <td><img class="img-gif" src="{{Storage::url($categoria->photo->url)}}" alt=""></td>
                         <td>
                             <a class="btn btn-secondary btn-sm" href="{{route('admin.categories.edit', $categoria)}}">Editar</a>
                         </td>
@@ -55,7 +57,12 @@
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
+    <style>
+        .img-gif {
+            width: 80px;
+            height.auto;
+        }
+    </style>
 @stop
 
 @section('js')

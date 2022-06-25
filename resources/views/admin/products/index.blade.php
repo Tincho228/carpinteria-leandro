@@ -16,7 +16,11 @@
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
+<style>
+    .img-gif{
+        width:80px;
+    }
+</style>
 @stop
 
 @section('js')

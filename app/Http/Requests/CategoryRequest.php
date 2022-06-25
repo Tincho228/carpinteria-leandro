@@ -27,7 +27,8 @@ class CategoryRequest extends FormRequest
         $rules =  [
             'name' => 'required',
             'slug' => 'required|unique:categories',
-            'description'=>'required'
+            'description'=>'required',
+            'file'=>'required|image'
         ];
 
         if($category){

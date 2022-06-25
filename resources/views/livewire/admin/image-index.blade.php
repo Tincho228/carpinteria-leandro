@@ -84,7 +84,7 @@
 
     </x-simple-modal>
     <!-- Modal de eliminar foto -->
-    {{-- <x-simple-modal>
+    <x-simple-modal>
         <x-slot name="target">
             deleteConfirmationModal
         </x-slot>
@@ -99,7 +99,7 @@
             <button type="submit" class="btn btn-danger btn-sm mr-2" wire:click="deletePhoto()" >Eliminar</button>  
         </x-slot>
 
-    </x-simple-modal> --}}
+    </x-simple-modal>
    
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
